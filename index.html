@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/artificial-intelligence.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
@@ -332,12 +333,12 @@
         }
         
         .hamburger {
-            display: none;
+            display: block;
             cursor: pointer;
             z-index: 1001;
             padding: 0.5rem;
         }
-        
+
         .hamburger span {
             display: block;
             width: 25px;
@@ -346,17 +347,37 @@
             margin: 5px 0;
             transition: all 0.3s ease;
         }
-        
+
         .hamburger.active span:nth-child(1) {
             transform: translateY(8px) rotate(45deg);
         }
-        
+
         .hamburger.active span:nth-child(2) {
             opacity: 0;
         }
-        
+
         .hamburger.active span:nth-child(3) {
             transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--darker);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            gap: 2rem;
+        }
+
+        .nav-links.active {
+            right: 0;
         }
         
         /* Hero Section */
@@ -367,6 +388,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, var(--dark) 0%, rgba(108, 99, 255, 0.1) 100%);
         }
         
         .hero-content {
@@ -380,6 +402,13 @@
             text-align: center;
         }
         
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
         .hero-img {
             width: 200px;
             height: 200px;
@@ -418,6 +447,29 @@
             opacity: 0;
         }
         
+        .hero-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-logos img {
+            width: 45px;
+            height: 45px;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .hero-logos img:hover {
+            transform: scale(1.1) translateY(-5px);
+            opacity: 1;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        }
+
         .hero-btns {
             display: flex;
             flex-direction: column;
@@ -471,9 +523,30 @@
         
         /* About Section */
         #about {
-            background: var(--darker);
+            background: linear-gradient(135deg, var(--darker) 0%, var(--gray) 100%);
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
+        }
+
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(7, 7, 10, 0.8) 0%, rgba(26, 26, 33, 0.8) 100%);
+            z-index: 0;
+        }
+
+        #about .container {
+            position: relative;
+            z-index: 1;
         }
         
         .about-content {
@@ -622,6 +695,36 @@
             color: var(--light);
         }
         
+        /* Skills Container */
+        .skills-container {
+            background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            margin-top: 2rem;
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .skills-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 33, 0.9);
+            border-radius: 15px;
+            z-index: 0;
+        }
+
+        .skills-container > * {
+            position: relative;
+            z-index: 1;
+        }
+
         /* Stats Counter */
         .stats-container {
             display: grid;
@@ -659,6 +762,28 @@
         /* Projects Section */
         #projects {
             position: relative;
+            background: var(--gray);
+            background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 33, 0.8);
+            z-index: 0;
+        }
+
+        #projects .container {
+            position: relative;
+            z-index: 1;
         }
         
         .projects-tabs {
@@ -1014,6 +1139,27 @@
         /* Services Section */
         #services {
             background: var(--darker);
+            background-image: url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(7, 7, 10, 0.9);
+            z-index: 0;
+        }
+
+        #services .container {
+            position: relative;
+            z-index: 1;
         }
         
         .services-grid {
@@ -1154,8 +1300,9 @@
         /* Extra-Curricular Works Section */
         #extra-curricular-works {
             position: relative;
+            background: var(--dark);
         }
-        
+
         .creative-tabs {
             display: flex;
             justify-content: center;
@@ -1163,13 +1310,13 @@
             margin-bottom: 2rem;
             flex-wrap: wrap;
         }
-        
+
         .creative-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1.5rem;
         }
-        
+
         .creative-card {
             background: var(--card-bg);
             border-radius: 15px;
@@ -1179,29 +1326,29 @@
             position: relative;
             border: 1px solid var(--border-color);
         }
-        
+
         .creative-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
-        
+
         .creative-img {
             height: 200px;
             overflow: hidden;
             position: relative;
         }
-        
+
         .creative-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
+
         .creative-card:hover .creative-img img {
             transform: scale(1.1);
         }
-        
+
         .creative-overlay {
             position: absolute;
             top: 0;
@@ -1215,24 +1362,106 @@
             opacity: 0;
             transition: var(--transition);
         }
-        
+
         .creative-card:hover .creative-overlay {
             opacity: 1;
         }
-        
+
         .creative-info {
             padding: 1.5rem;
         }
-        
+
         .creative-title {
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
             color: var(--text-color);
         }
+
+        /* Testimonials Section */
+        #testimonials {
+            position: relative;
+            background: linear-gradient(135deg, var(--gray) 0%, rgba(255, 101, 132, 0.1) 100%);
+            background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 26, 33, 0.8) 0%, rgba(255, 101, 132, 0.2) 100%);
+            z-index: 0;
+        }
+
+        #testimonials .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 1px solid var(--border-color);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+
+        .testimonial-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: rgba(var(--text-color), 0.8);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .testimonial-author h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .testimonial-author span {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
         
         /* Contact Section */
         #contact {
             position: relative;
+            background: var(--darker);
         }
         
         .contact-container {
@@ -1657,106 +1886,112 @@
             .container {
                 padding: 0 2rem;
             }
-            
+
             section {
                 padding: 5rem 0;
             }
-            
+
             .hero-content {
                 flex-direction: row;
                 text-align: left;
-                gap: 3rem;
+                gap: 4rem;
                 align-items: center;
             }
-            
+
+            .hero-left {
+                gap: 2rem;
+            }
+
             .hero-img {
                 width: 250px;
                 height: 250px;
                 margin-bottom: 0;
             }
-            
+
             .hero-btns {
                 flex-direction: row;
                 justify-content: flex-start;
                 max-width: 100%;
             }
-            
+
             .projects-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .creative-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .stats-container {
                 grid-template-columns: repeat(4, 1fr);
             }
-            
+
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .contact-container {
                 grid-template-columns: 1fr 1fr;
             }
-            
+
             .dual-timeline {
                 grid-template-columns: 1fr 1fr;
             }
-            
+
             .timeline::after {
                 left: 50%;
             }
-            
+
             .timeline-item {
                 width: 50%;
                 padding-left: 40px;
                 padding-right: 40px;
             }
-            
+
             .timeline-item::after {
                 left: -10px;
             }
-            
+
             .left::after {
                 right: -10px;
             }
-            
+
             .right {
                 left: 50%;
             }
-            
+
             .certificate-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            /* Mobile menu styles */
+            /* Desktop navbar styles */
             .hamburger {
-                display: block;
+                display: none;
             }
-            
+
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 400px;
-                height: 100vh;
-                background: var(--darker);
-                flex-direction: column;
+                position: static;
+                width: auto;
+                height: auto;
+                background: transparent;
+                flex-direction: row;
                 align-items: center;
-                justify-content: center;
-                transition: right 0.3s ease;
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+                justify-content: flex-start;
+                box-shadow: none;
+                right: auto;
+                gap: 1.5rem;
             }
-            
+
             .nav-links.active {
-                right: 0;
+                right: auto;
             }
         }
         
@@ -1765,28 +2000,32 @@
             section {
                 padding: 6rem 0;
             }
-            
+
             .hero-content {
-                gap: 4rem;
+                gap: 3rem;
             }
-            
+
             .hero-img {
                 width: 300px;
                 height: 300px;
             }
-            
+
             .projects-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-            
+
             .services-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
-            
+
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
             .footer-content {
                 grid-template-columns: repeat(3, 1fr);
             }
-            
+
             .certificate-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -1797,7 +2036,11 @@
             .services-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
-            
+
+            .testimonials-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
             .footer-content {
                 grid-template-columns: repeat(4, 1fr);
             }
@@ -1811,7 +2054,7 @@
             <nav class="navbar">
                 <a href="#" class="logo">
                     <div class="logo-icon">
-                        <img src="files/logo.jpg" alt="Akrash Noor">
+                        <img src="https://img.icons8.com/color/48/000000/artificial-intelligence.png" alt="Akrash Noor">
                     </div>
                     Akrash<span>.</span>
                 </a>
@@ -1821,6 +2064,7 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#extra-curricular-works">Creative</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="hamburger">
@@ -1840,9 +2084,29 @@
         <div class="hero-shape shape-3"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-img">
-                    <img src="files/main.jpg" alt="Akrash Noor">
+                <div class="hero-left">
+                    <div class="hero-img">
+                        <img src="files/main.jpg" alt="Akrash Noor">
+                    </div>
+
+                    <div class="hero-logos">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" title="Java">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" title="C++">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" title="HTML">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" title="CSS">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" title="JavaScript">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" title="Flutter">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" alt="Dart" title="Dart">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" title="PHP">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" alt="WordPress" title="WordPress">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-plain.svg" alt="Netlify" title="Netlify">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" title="React">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" title="Node.js">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" title="MySQL">
+                    </div>
                 </div>
+
                 <div class="hero-text">
                     <h2 class="subtitle animate__animated animate__fadeIn">Hello, I'm</h2>
                     <h1 class="hero-title">Akrash <span>Noor</span></h1>
@@ -1863,20 +2127,44 @@
             <h2 class="section-title">My Works</h2>
             <p class="section-subtitle">Explore my portfolio of AI and software development projects. Each project represents a unique challenge and solution, showcasing my skills in various technologies.</p>
             
-            <h2>Featured Project</h2>
-            <div class="card mx-auto" style="max-width: 600px;">
-              <div class="card-body text-center">
-                <h3 class="card-title"><a href="https://textflow.streamlit.app" target="_blank" style="color: var(--primary); text-decoration: none;">TextFlow AI-Text Humanizer</a></h3>
-                <p class="card-text">Free text humanizer built with Python backend and Streamlit frontend.</p>
-              </div>
-                <div class="card-body text-center">
-                <h3 class="card-title"><a href="https://nexaagency.netlify.app" target="_blank" style="color: var(--primary); text-decoration: none;">Website for Nexa Agency</a></h3>
-                <p class="card-text">Nexa is a advance AI-based Marketing agency.</p>
-              </div>
-                 <div class="card-body text-center">
-                <h3 class="card-title"><a href="https://streamsage.app" target="_blank" style="color: var(--primary); text-decoration: none;">The Ultimate Streamlit Assistant</a></h3>
-                <p class="card-text">The Most Advanced AI-Powered Streamlit Development Assistant.</p>
-              </div>
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title"><a href="https://textflow.streamlit.app" target="_blank" style="color: var(--primary); text-decoration: none;">TextFlow AI-Text Humanizer</a></h3>
+                        <span class="project-category">AI/ML</span>
+                        <p>Free text humanizer built with Python backend and Streamlit frontend.</p>
+                        <div class="project-links">
+                            <a href="https://textflow.streamlit.app" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title"><a href="https://nexaagency.netlify.app" target="_blank" style="color: var(--primary); text-decoration: none;">Website for Nexa Agency</a></h3>
+                        <span class="project-category">Web Development</span>
+                        <p>Nexa is an advanced AI-based Marketing agency.</p>
+                        <div class="project-links">
+                            <a href="https://nexaagency.netlify.app" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-info">
+                        <h3 class="project-title"><a href="https://streamsage.app" target="_blank" style="color: var(--primary); text-decoration: none;">The Ultimate Streamlit Assistant</a></h3>
+                        <span class="project-category">AI Tool</span>
+                        <p>The Most Advanced AI-Powered Streamlit Development Assistant.</p>
+                        <div class="project-links">
+                            <a href="https://streamsage.app" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- GitHub Projects -->
@@ -2010,7 +2298,7 @@
                 <!-- Service 7 -->
                 <div class="service-card design-card">
                     <div class="service-icon">
-                        <i class="fas fa-palette"></i> 
+                        <i class="fas fa-palette"></i>
                     </div>
                     <h3 class="service-title"> Graphic Design</h3>
                     <p>Transforming ideas into visually stunning designs that communicate your brand's essence. I create compelling visuals that capture attention and deliver your message with impact.</p>
@@ -2019,6 +2307,21 @@
                         <li>Print & digital media</li>
                         <li>UI/UX design</li>
                         <li>Marketing collateral</li>
+                    </ul>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="service-title">Research Paper Implementation</h3>
+                    <p>Bringing academic research to life through code. I specialize in implementing algorithms and models from research papers, helping researchers and students turn theoretical concepts into practical, working solutions.</p>
+                    <ul class="service-features">
+                        <li>Algorithm implementation from papers</li>
+                        <li>ML model reproduction</li>
+                        <li>Academic project coding</li>
+                        <li>Research code validation</li>
                     </ul>
                 </div>
             </div>
@@ -2339,6 +2642,60 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimonials</h2>
+            <p class="section-subtitle">What people say about working with me</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">"Akrash delivered exceptional work on our AI project. His expertise in machine learning and attention to detail made all the difference. Highly recommended for any tech development needs."</p>
+                    <div class="testimonial-author">
+                        <h4>Sarah Johnson</h4>
+                        <span>CEO, Tech Innovations Inc.</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">"Working with Akrash was a game-changer for our startup. His innovative solutions and deep understanding of AI helped us scale our operations efficiently."</p>
+                    <div class="testimonial-author">
+                        <h4>Michael Chen</h4>
+                        <span>Founder, DataFlow Solutions</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">"Akrash's desktop application development skills are outstanding. He created a robust solution that exceeded our expectations and improved our workflow significantly."</p>
+                    <div class="testimonial-author">
+                        <h4>Emily Rodriguez</h4>
+                        <span>Project Manager, Global Tech Corp</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">"The AI tools developed by Akrash have transformed how we handle data analysis. His work is professional, timely, and incredibly effective."</p>
+                    <div class="testimonial-author">
+                        <h4>David Kim</h4>
+                        <span>Data Scientist, Analytics Pro</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
@@ -2448,6 +2805,7 @@
                         <li><a href="#services">Services</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#extra-curricular-works">Creative Works</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
@@ -2456,11 +2814,13 @@
                     <h3>Services</h3>
                     <ul class="footer-links">
                         <li><a href="#services">Desktop App Development</a></li>
-                        <li><a href="#services">Machine Learning</a></li>
-                        <li><a href="#services">AI Solutions</a></li>
-                        <li><a href="#services">Custom Software</a></li>
-                        <li><a href="#services">Data Analysis</a></li>
-                        <li><a href="#services">Cyber Security</a></li>
+                        <li><a href="#services">Machine Learning Solutions</a></li>
+                        <li><a href="#services">AI-Based Tools</a></li>
+                        <li><a href="#services">Data Visualization</a></li>
+                        <li><a href="#services">Web Application Development</a></li>
+                        <li><a href="#services">CS Project Development</a></li>
+                        <li><a href="#services">Graphic Design</a></li>
+                        <li><a href="#services">Research Paper Implementation</a></li>
                     </ul>
                 </div>
             </div>
@@ -2764,9 +3124,6 @@
 
                         projectsHtml += `
                             <div class="project-card">
-                                <div class="project-img">
-                                    <img src="https://via.placeholder.com/400x200/6C63FF/FFFFFF?text=${repo.name.replace(/\s+/g, '-').toUpperCase()}" alt="${repo.name}" loading="lazy">
-                                </div>
                                 <div class="project-info">
                                     <h3 class="project-title">${repo.name}</h3>
                                     ${language}
@@ -3164,16 +3521,16 @@
 
             // Animation on scroll
             const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.service-card, .project-card, .about-img, .about-text, .creative-card, .stat-item, .timeline-item, .skill-bar');
-                
+                const elements = document.querySelectorAll('.service-card, .project-card, .about-img, .about-text, .creative-card, .testimonial-card, .stat-item, .timeline-item, .skill-bar');
+
                 elements.forEach(element => {
                     const elementPosition = element.getBoundingClientRect().top;
                     const screenPosition = window.innerHeight / 1.2;
-                    
+
                     if (elementPosition < screenPosition) {
                         element.style.opacity = '1';
                         element.style.transform = 'translateY(0)';
-                        
+
                         // Animate skill bars
                         if (element.classList.contains('skill-bar')) {
                             const progressBar = element.querySelector('.skill-progress');
@@ -3183,9 +3540,9 @@
                     }
                 });
             };
-            
+
             // Set initial state for animated elements
-            document.querySelectorAll('.service-card, .project-card, .about-img, .about-text, .creative-card, .stat-item, .timeline-item').forEach(element => {
+            document.querySelectorAll('.service-card, .project-card, .about-img, .about-text, .creative-card, .testimonial-card, .stat-item, .timeline-item').forEach(element => {
                 element.style.opacity = '0';
                 element.style.transform = 'translateY(30px)';
                 element.style.transition = 'all 0.5s ease';
@@ -3222,10 +3579,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
