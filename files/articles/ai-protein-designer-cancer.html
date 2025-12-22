@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven Protein Designer for Cancer - Akrash Noor</title>
+    <meta name="description" content="Mathematical and computational foundation for AI-driven protein design in cancer therapy, covering sequence representation, structure prediction, binding affinity, and optimization objectives.">
+    <meta name="keywords" content="AI protein design, cancer therapy, bioinformatics, protein structure prediction, binding affinity, machine learning, computational biology, drug discovery">
+    <meta name="author" content="Akrash Noor">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="AI-Driven Protein Designer for Cancer">
+    <meta property="og:description" content="Mathematical and computational foundation for AI-driven protein design in cancer therapy, covering sequence representation, structure prediction, binding affinity, and optimization objectives.">
+    <meta property="og:image" content="https://img.icons8.com/color/48/000000/artificial-intelligence.png">
+    <meta property="og:url" content="https://akrashnoor.github.io/portfolio/files/articles/ai-protein-designer-cancer.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI-Driven Protein Designer for Cancer">
+    <meta name="twitter:description" content="Mathematical and computational foundation for AI-driven protein design in cancer therapy, covering sequence representation, structure prediction, binding affinity, and optimization objectives.">
+    <meta name="twitter:image" content="https://img.icons8.com/color/48/000000/artificial-intelligence.png">
+    <link rel="canonical" href="https://akrashnoor.github.io/portfolio/files/articles/ai-protein-designer-cancer.html">
+    <meta property="article:published_time" content="2025-09-10">
+    <meta property="article:author" content="Akrash Noor">
+    <meta property="article:section" content="Technology">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="Bioinformatics">
+    <meta property="article:tag" content="Cancer Therapy">
+    <meta property="article:tag" content="Protein Design">
+    <meta property="article:tag" content="Machine Learning">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AI-Driven Protein Designer for Cancer",
+        "author": {
+            "@type": "Person",
+            "name": "Akrash Noor"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Akrash Noor"
+        },
+        "datePublished": "2025-09-10",
+        "dateModified": "2025-09-10",
+        "description": "Mathematical and computational foundation for AI-driven protein design in cancer therapy, covering sequence representation, structure prediction, binding affinity, and optimization objectives.",
+        "keywords": "AI protein design, cancer therapy, bioinformatics, protein structure prediction, binding affinity, machine learning, computational biology, drug discovery",
+        "url": "https://akrashnoor.github.io/portfolio/files/articles/ai-protein-designer-cancer.html",
+        "image": "https://img.icons8.com/color/48/000000/artificial-intelligence.png"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/artificial-intelligence.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-light: rgba(108, 99, 255, 0.1);
+            --dark: #0F0F13;
+            --light: #F5F5F7;
+            --gray: #1A1A21;
+            --border-color: #2E2E38;
+            --transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), #FF6584);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-meta {
+            color: rgba(245, 245, 247, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .article-content {
+            padding: 2rem 0;
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--light);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .article-content code {
+            background: var(--gray);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--gray);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: rgba(245, 245, 247, 0.9);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        .social-share {
+            margin-top: 1rem;
+        }
+
+        .social-share a {
+            color: var(--primary);
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .tags {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tags span {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+            <h1 class="article-title">AI-Driven Protein Designer for Cancer</h1>
+            <div class="article-meta">
+                <span>By Akrash Noor</span> | <span>September 10, 2025</span> | <span>AI, Bioinformatics, Cancer Therapy</span>
+            </div>
+        </header>
+
+        <main class="article-content">
+            <p>This appendix provides a high-level mathematical and computational foundation for AI-driven protein design used in cancer therapy.</p>
+            <figure>
+                <img src="https://img.icons8.com/color/96/000000/dna-helix.png" alt="DNA Helix representing protein structure" style="width:100%; max-width:300px; height:auto; margin:1rem 0; border-radius:8px;">
+                <figcaption>Protein structure visualization</figcaption>
+            </figure>
+
+            <h2>1. Protein Sequence Representation</h2>
+            <p>A protein is represented as a sequence of amino acids:</p>
+            <p><code>P = (a₁, a₂, a₃, …, aₙ), aᵢ ∈ A</code></p>
+            <p>where:</p>
+            <ul>
+                <li>n is the protein length</li>
+                <li>A is the set of 20 standard amino acids</li>
+            </ul>
+            <p>Each amino acid is encoded using numerical embeddings (e.g., one-hot vectors or learned embeddings):</p>
+            <p><code>aᵢ → xᵢ ∈ ℝᵈ</code></p>
+
+            <h2>2. AI-Based De Novo Protein Generation</h2>
+            <p>Protein design is modeled as a sequence generation problem:</p>
+            <p><code>P* = arg max_P p(P|T)</code></p>
+            <p>where:</p>
+            <ul>
+                <li>T represents the cancer target (e.g., HER2 receptor)</li>
+                <li>p(P|T) is learned using neural networks such as:</li>
+                <ul>
+                    <li>Transformer models</li>
+                    <li>Variational Autoencoders (VAEs)</li>
+                    <li>Diffusion-based protein models</li>
+                </ul>
+            </ul>
+            <p>The objective is to generate protein sequences with high probability of effective binding.</p>
+
+            <h2>3. Protein Structure Prediction</h2>
+            <p>The folding of a protein is approximated by predicting its 3D conformation:</p>
+            <p><code>S = f_θ(P)</code></p>
+            <p>where:</p>
+            <ul>
+                <li>S is the predicted structure</li>
+                <li>f_θ is a deep learning model (e.g., AlphaFold-style architecture)</li>
+            </ul>
+            <p>The model minimizes structural loss:</p>
+            <p><code>L_structure = ||S_pred - S_true||²</code></p>
+            <figure>
+                <img src="https://img.icons8.com/color/96/000000/artificial-intelligence.png" alt="Artificial Intelligence icon" style="width:100%; max-width:300px; height:auto; margin:1rem 0; border-radius:8px;">
+                <figcaption>AI technology in protein design</figcaption>
+            </figure>
+
+            <h2>4. Protein–Target Binding Affinity</h2>
+            <p>Binding strength between the designed protein P and cancer target T is evaluated using docking scores or free energy approximation:</p>
+            <p><code>ΔG_bind = G(P,T) - G(P) - G(T)</code></p>
+            <p>Lower ΔG_bind values indicate stronger and more stable binding.</p>
+
+            <h2>5. Optimization Objective</h2>
+            <p>The overall protein optimization objective is defined as:</p>
+            <p><code>min_P L = α L_bind + β L_stability + γ L_specificity</code></p>
+            <p>where:</p>
+            <ul>
+                <li>α, β, γ are weighting coefficients</li>
+                <li>Binding, stability, and specificity losses are optimized simultaneously</li>
+            </ul>
+            <p>This multi-objective optimization ensures therapeutic effectiveness and safety.</p>
+
+            <h2>6. Iterative Improvement Loop</h2>
+            <p>AI models refine protein sequences iteratively:</p>
+            <p><code>P_{k+1} = P_k + ΔP</code></p>
+            <p>where ΔP is guided by gradient-based optimization or reinforcement learning feedback from binding and stability scores.</p>
+
+            <h2>7. Computational Advantages</h2>
+            <ul>
+                <li>Reduces experimental trial-and-error</li>
+                <li>Enables large-scale protein screening</li>
+                <li>Accelerates therapeutic discovery</li>
+                <li>Supports personalized medicine workflows</li>
+            </ul>
+
+            <h2>Author Information</h2>
+            <p><strong>Author:</strong> Akrash Noor</p>
+            <p><strong>Field:</strong> Artificial Intelligence, Machine Learning, Bioinformatics</p>
+            <p><strong>Focus Areas:</strong></p>
+            <ul>
+                <li>AI-driven protein design</li>
+                <li>Cancer-targeted therapy</li>
+                <li>Computational biology</li>
+                <li>Deep learning for healthcare</li>
+            </ul>
+
+            <h2>Purpose</h2>
+            <p>This work is intended for academic learning, research demonstration, and portfolio presentation, highlighting the role of artificial intelligence in advancing precision cancer therapy.</p>
+
+            <div class="tags">
+                <span>AI</span>
+                <span>Protein Design</span>
+                <span>Cancer Therapy</span>
+                <span>Bioinformatics</span>
+                <span>Machine Learning</span>
+                <span>Computational Biology</span>
+                <span>Drug Discovery</span>
+                <span>Protein Structure Prediction</span>
+                <span>Binding Affinity</span>
+                <span>Precision Medicine</span>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Akrash Noor. All rights reserved.</p>
+            <div class="social-share">
+                <a href="#" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="Share on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" title="Share on Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

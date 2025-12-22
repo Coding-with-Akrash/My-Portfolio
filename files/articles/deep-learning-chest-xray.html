@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparative Analysis of Deep Learning Models for Chest X-Ray Image Classification - Akrash Noor</title>
+    <meta name="description" content="Comprehensive analysis of deep learning models for chest X-ray image classification, featuring CNN architectures, optimization techniques, and PyTorch/TensorFlow implementation.">
+    <meta name="keywords" content="deep learning, chest X-ray classification, CNN, PyTorch, TensorFlow, medical imaging, AI, machine learning, convolutional neural networks, image classification">
+    <meta name="author" content="Akrash Noor">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Comparative Analysis of Deep Learning Models for Chest X-Ray Image Classification">
+    <meta property="og:description" content="Comprehensive analysis of deep learning models for chest X-ray image classification, featuring CNN architectures, optimization techniques, and PyTorch/TensorFlow implementation.">
+    <meta property="og:image" content="https://img.icons8.com/color/48/000000/artificial-intelligence.png">
+    <meta property="og:url" content="https://akrashnoor.github.io/portfolio/files/articles/deep-learning-chest-xray.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Comparative Analysis of Deep Learning Models for Chest X-Ray Image Classification">
+    <meta name="twitter:description" content="Comprehensive analysis of deep learning models for chest X-ray image classification, featuring CNN architectures, optimization techniques, and PyTorch/TensorFlow implementation.">
+    <meta name="twitter:image" content="https://img.icons8.com/color/48/000000/artificial-intelligence.png">
+    <link rel="canonical" href="https://akrashnoor.github.io/portfolio/files/articles/deep-learning-chest-xray.html">
+    <meta property="article:published_time" content="2025-12-21">
+    <meta property="article:author" content="Akrash Noor">
+    <meta property="article:section" content="Technology">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="Machine Learning">
+    <meta property="article:tag" content="Medical Imaging">
+    <meta property="article:tag" content="Deep Learning">
+    <meta property="article:tag" content="CNN">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Comparative Analysis of Deep Learning Models for Chest X-Ray Image Classification",
+        "author": {
+            "@type": "Person",
+            "name": "Akrash Noor"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Akrash Noor"
+        },
+        "datePublished": "2025-12-21",
+        "dateModified": "2025-12-21",
+        "description": "Comprehensive analysis of deep learning models for chest X-ray image classification, featuring CNN architectures, optimization techniques, and PyTorch/TensorFlow implementation.",
+        "keywords": "deep learning, chest X-ray classification, CNN, PyTorch, TensorFlow, medical imaging, AI, machine learning",
+        "url": "https://akrashnoor.github.io/portfolio/files/articles/deep-learning-chest-xray.html",
+        "image": "https://img.icons8.com/color/48/000000/artificial-intelligence.png"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://img.icons8.com/color/48/000000/artificial-intelligence.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-light: rgba(108, 99, 255, 0.1);
+            --dark: #0F0F13;
+            --light: #F5F5F7;
+            --gray: #1A1A21;
+            --border-color: #2E2E38;
+            --transition: all 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        header {
+            padding: 2rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), #FF6584);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-meta {
+            color: rgba(245, 245, 247, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .article-content {
+            padding: 2rem 0;
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--light);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .article-content code {
+            background: var(--gray);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .article-content pre {
+            background: var(--gray);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: rgba(245, 245, 247, 0.9);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        .social-share {
+            margin-top: 1rem;
+        }
+
+        .social-share a {
+            color: var(--primary);
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .tags {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .tags span {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+            <h1 class="article-title">Comparative Analysis of Deep Learning Models for Chest X-Ray Image Classification</h1>
+            <div class="article-meta">
+                <span>By Akrash Noor</span> | <span>December 21, 2025</span> | <span>AI, Machine Learning, Medical Imaging</span>
+            </div>
+        </header>
+
+        <main class="article-content">
+            <h2>Abstract</h2>
+            <p>Chest X-ray imaging is one of the most widely used diagnostic tools for detecting pulmonary diseases. Recent advances in deep learning, particularly Convolutional Neural Networks (CNNs), have significantly improved automated medical image analysis. This project presents a comparative evaluation of multiple deep learning models trained on chest X-ray images using PyTorch and TensorFlow frameworks. The study includes mathematical modeling of CNN operations, optimization techniques, and loss functions to provide a complete theoretical and practical understanding of model performance.</p>
+            <figure>
+                <img src="https://img.icons8.com/color/96/000000/x-ray.png" alt="Chest X-ray icon" style="width:100%; max-width:300px; height:auto; margin:1rem 0; border-radius:8px;">
+                <figcaption>Chest X-ray imaging for diagnosis</figcaption>
+            </figure>
+
+            <h2>1. Introduction</h2>
+            <p>Medical image classification can be formulated as a supervised learning problem, where the goal is to learn a function:</p>
+            <p><code>f<sub>θ</sub>: X → Y</code></p>
+            <p>where:</p>
+            <ul>
+                <li>X represents the space of chest X-ray images,</li>
+                <li>Y denotes disease labels (e.g., Normal, Pneumonia),</li>
+                <li>θ are trainable model parameters.</li>
+            </ul>
+            <p>Given a dataset {(x<sup>i</sup>, y<sup>i</sup>)<sub>i=1</sub><sup>N</sup>}, the objective is to learn θ such that the predicted label ŷ<sup>i</sup> = f<sub>θ</sub>(x<sup>i</sup>) closely matches the ground truth y<sup>i</sup>.</p>
+
+            <h2>2. Dataset Representation and Preprocessing</h2>
+            <p>Each chest X-ray image is represented as a tensor:</p>
+            <p><code>X ∈ ℝ<sup>H×W×C</sup></code></p>
+            <p>where:</p>
+            <ul>
+                <li>H = image height,</li>
+                <li>W = image width,</li>
+                <li>C = number of channels (typically C=1 for grayscale).</li>
+            </ul>
+
+            <h3>Normalization</h3>
+            <p>Pixel values are normalized to improve training stability:</p>
+            <p><code>X<sub>norm</sub> = (X - μ) / σ</code></p>
+            <p>where μ and σ are the dataset mean and standard deviation.</p>
+
+            <h2>3. Convolutional Neural Network (CNN) Architecture</h2>
+            <h3>3.1 Convolution Operation</h3>
+            <p>The convolution layer extracts spatial features using kernels (filters):</p>
+            <p><code>Z<sub>i,j,k</sub> = ∑<sub>m=0</sub><sup>M-1</sup> ∑<sub>n=0</sub><sup>N-1</sup> X<sub>i+m,j+n</sub> ⋅ K<sub>m,n,k</sub> + b<sub>k</sub></code></p>
+            <p>where:</p>
+            <ul>
+                <li>K is the convolution kernel,</li>
+                <li>b<sub>k</sub> is the bias term,</li>
+                <li>k is the feature map index.</li>
+            </ul>
+            <figure>
+                <img src="https://img.icons8.com/color/96/000000/neural-network.png" alt="Neural network icon" style="width:100%; max-width:300px; height:auto; margin:1rem 0; border-radius:8px;">
+                <figcaption>Convolutional Neural Network architecture</figcaption>
+            </figure>
+
+            <h3>3.2 Activation Function (ReLU)</h3>
+            <p>To introduce non-linearity, the Rectified Linear Unit (ReLU) is applied:</p>
+            <p><code>f(x) = max(0, x)</code></p>
+            <p>This helps CNNs learn complex patterns in chest X-ray images.</p>
+
+            <h3>3.3 Pooling Layer</h3>
+            <p>Pooling reduces spatial dimensions while preserving important features:</p>
+            <p><code>P<sub>i,j</sub> = max<sub>(m,n)∈Ω</sub> Z<sub>i+m,j+n</sub></code></p>
+            <p>Max-pooling improves translation invariance and reduces computation.</p>
+
+            <h2>4. Fully Connected Layers</h2>
+            <p>After feature extraction, flattened feature maps are passed to dense layers:</p>
+            <p><code>h = σ(Wx + b)</code></p>
+            <p>where:</p>
+            <ul>
+                <li>W is the weight matrix,</li>
+                <li>b is the bias vector,</li>
+                <li>σ is an activation function.</li>
+            </ul>
+
+            <h2>5. Output Layer and Softmax Function</h2>
+            <p>For classification, the Softmax function converts logits into probabilities:</p>
+            <p><code>P(y=k|x) = e<sup>z<sub>k</sub></sup> / ∑<sub>j=1</sub><sup>C</sup> e<sup>z<sub>j</sub></sup></code></p>
+            <p>where:</p>
+            <ul>
+                <li>z<sub>k</sub> is the logit for class k,</li>
+                <li>C is the number of classes.</li>
+            </ul>
+
+            <h2>6. Loss Function: Cross-Entropy Loss</h2>
+            <p>The objective function minimized during training is the categorical cross-entropy loss:</p>
+            <p><code>L = -∑<sub>i=1</sub><sup>C</sup> y<sub>i</sub> log(ŷ<sub>i</sub>)</code></p>
+            <p>where:</p>
+            <ul>
+                <li>y<sub>i</sub> is the true label,</li>
+                <li>ŷ<sub>i</sub> is the predicted probability.</li>
+            </ul>
+
+            <h2>7. Optimization Using Gradient Descent</h2>
+            <p>Model parameters are updated using gradient-based optimization:</p>
+            <p><code>θ<sub>t+1</sub> = θ<sub>t</sub> - η ∇<sub>θ</sub> L</code></p>
+            <p>where:</p>
+            <ul>
+                <li>η is the learning rate,</li>
+                <li>∇<sub>θ</sub> L is the gradient of the loss.</li>
+            </ul>
+
+            <h3>Adam Optimizer</h3>
+            <p>Adam adapts learning rates using moment estimates:</p>
+            <p><code>m<sub>t</sub> = β₁ m<sub>t-1</sub> + (1-β₁) g<sub>t</sub></code></p>
+            <p><code>v<sub>t</sub> = β₂ v<sub>t-1</sub> + (1-β₂) g<sub>t</sub><sup>2</sup></code></p>
+            <p><code>θ<sub>t</sub> = θ<sub>t-1</sub> - η √(v<sub>t</sub> + ε) / m<sub>t</sub></code></p>
+
+            <h2>8. Model Evaluation Metrics</h2>
+            <h3>Accuracy</h3>
+            <p><code>Accuracy = (TP + TN) / (TP + TN + FP + FN)</code></p>
+
+            <h3>Precision</h3>
+            <p><code>Precision = TP / (TP + FP)</code></p>
+
+            <h3>Recall</h3>
+            <p><code>Recall = TP / (TP + FN)</code></p>
+
+            <h3>F1-Score</h3>
+            <p><code>F1 = 2 ⋅ (Precision ⋅ Recall) / (Precision + Recall)</code></p>
+            <p>These metrics are crucial for medical diagnosis where false negatives can be critical.</p>
+
+            <h2>9. Model Comparison Strategy</h2>
+            <p>All models were trained under identical conditions:</p>
+            <p><code>M = {M₁, M₂, …, Mₙ}</code></p>
+            <p>Each model M<sub>i</sub> was evaluated using the same dataset, loss function, and metrics to ensure fairness and reproducibility.</p>
+
+            <h2>10. Results and Discussion</h2>
+            <p>Experimental results show that deeper CNNs and transfer learning models achieve higher classification accuracy due to richer feature representations. However, increased depth also raises computational cost. The trade-off between accuracy and efficiency is a key consideration in real-world clinical deployment.</p>
+
+            <h2>11. Conclusion</h2>
+            <p>This project demonstrates a mathematically grounded and experimentally validated comparison of deep learning models for chest X-ray classification. By integrating theoretical foundations with practical implementation in PyTorch and TensorFlow, the project highlights best practices in medical AI development.</p>
+
+            <h2>12. Portfolio Value Statement</h2>
+            <p>This project showcases:</p>
+            <ul>
+                <li>✔ Deep learning theory (CNNs, optimization, loss functions)</li>
+                <li>✔ Practical ML implementation across frameworks</li>
+                <li>✔ Medical imaging domain knowledge</li>
+                <li>✔ Research-oriented thinking and reproducibility</li>
+            </ul>
+
+            <div class="tags">
+                <span>Python Machine Learning</span>
+                <span>Deep Learning</span>
+                <span>Deep Learning in Medical Field</span>
+                <span>Convolutional Neural Networks</span>
+                <span>Image Classification</span>
+                <span>PyTorch</span>
+                <span>TensorFlow</span>
+                <span>Medical AI</span>
+                <span>Chest X-Ray Analysis</span>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Akrash Noor. All rights reserved.</p>
+            <div class="social-share">
+                <a href="#" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" title="Share on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" title="Share on Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

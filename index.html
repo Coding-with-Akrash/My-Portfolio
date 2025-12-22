@@ -1063,7 +1063,44 @@
             margin-top: 1rem;
             flex-wrap: wrap;
         }
-        
+
+        /* Articles Section */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.5s ease forwards;
+            position: relative;
+            border: 1px solid var(--border-color);
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .article-info {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .article-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
         /* Upcoming Projects */
         .upcoming-projects {
             text-align: center;
@@ -1918,6 +1955,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -2014,6 +2055,10 @@
                 grid-template-columns: repeat(3, 1fr);
             }
 
+            .articles-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
             .services-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
@@ -2063,6 +2108,7 @@
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#articles">Articles</a></li>
                     <li><a href="#extra-curricular-works">Creative</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -2564,6 +2610,35 @@
         </div>
     </section>
 
+    <!-- Articles Section -->
+    <section id="articles">
+        <div class="container">
+            <h2 class="section-title">Articles</h2>
+            <p class="section-subtitle">Articles written by me on various topics including AI, programming, and technology.</p>
+
+            <div class="articles-grid">
+                <div class="article-card">
+                    <div class="article-info">
+                        <h3 class="article-title"><a href="files/articles/deep-learning-chest-xray.html" style="color: var(--primary); text-decoration: none;">Comparative Analysis of Deep Learning Models for Chest X-Ray Image Classification</a></h3>
+                        <p>A comprehensive study on deep learning models for medical image classification, featuring mathematical foundations, CNN architectures, optimization techniques, and practical implementation in PyTorch and TensorFlow.</p>
+                        <div class="article-meta" style="margin-top: 1rem; font-size: 0.9rem; color: rgba(245, 245, 247, 0.8);">
+                            December 21, 2025 | AI, Machine Learning, Medical Imaging
+                        </div>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-info">
+                        <h3 class="article-title"><a href="files/articles/ai-protein-designer-cancer.html" style="color: var(--primary); text-decoration: none;">AI-Driven Protein Designer for Cancer</a></h3>
+                        <p>A mathematical and computational foundation for AI-driven protein design in cancer therapy, covering sequence representation, structure prediction, binding affinity, and optimization objectives.</p>
+                        <div class="article-meta" style="margin-top: 1rem; font-size: 0.9rem; color: rgba(245, 245, 247, 0.8);">
+                            September 10, 2025 | AI, Bioinformatics, Cancer Therapy
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Extra-Curricular Works Section -->
     <section id="extra-curricular-works">
         <div class="container">
@@ -2804,6 +2879,7 @@
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#about">About</a></li>
+                        <li><a href="#articles">Articles</a></li>
                         <li><a href="#extra-curricular-works">Creative Works</a></li>
                         <li><a href="#testimonials">Testimonials</a></li>
                         <li><a href="#contact">Contact</a></li>
@@ -3521,7 +3597,7 @@
 
             // Animation on scroll
             const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.service-card, .project-card, .about-img, .about-text, .creative-card, .testimonial-card, .stat-item, .timeline-item, .skill-bar');
+                const elements = document.querySelectorAll('.service-card, .project-card, .article-card, .about-img, .about-text, .creative-card, .testimonial-card, .stat-item, .timeline-item, .skill-bar');
 
                 elements.forEach(element => {
                     const elementPosition = element.getBoundingClientRect().top;
@@ -3542,7 +3618,7 @@
             };
 
             // Set initial state for animated elements
-            document.querySelectorAll('.service-card, .project-card, .about-img, .about-text, .creative-card, .testimonial-card, .stat-item, .timeline-item').forEach(element => {
+            document.querySelectorAll('.service-card, .project-card, .article-card, .about-img, .about-text, .creative-card, .testimonial-card, .stat-item, .timeline-item').forEach(element => {
                 element.style.opacity = '0';
                 element.style.transform = 'translateY(30px)';
                 element.style.transition = 'all 0.5s ease';
